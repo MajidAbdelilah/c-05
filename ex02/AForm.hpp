@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 
-class Form {
+class AForm {
 private:
     const std::string name;
     bool isSigned;
@@ -11,17 +11,19 @@ private:
     const int gradeToExecute;
 
 public:
-    Form(std::string name, int gradeToSign, int gradeToExecute);
-    Form(const Form &src); // Copy constructor
-    Form &operator=(const Form &rhs); // Copy assignment operator
-    ~Form(); // Destructor
+    AForm(std::string name, int gradeToSign, int gradeToExecute);
+    AForm(const AForm &src); // Copy constructor
+    AForm &operator=(const AForm &rhs); // Copy assignment operator
+    virtual ~AForm(); // Destructor
 
     std::string getName() const;
     bool getIsSigned() const;
     int getGradeToSign() const;
     int getGradeToExecute() const;
-	
     void beSigned(const Bureaucrat &b);
+
+    // Add this pure virtual function
+    virtual void execute(Bureaucrat const & executor) const = 0;
 
     class GradeTooHighException : public std::exception {
     public:
@@ -34,4 +36,4 @@ public:
     };
 };
 
-std::ostream &operator<<(std::ostream &os, const Form &f);
+std::ostream &operator<<(std::ostream &os, const AForm &f);

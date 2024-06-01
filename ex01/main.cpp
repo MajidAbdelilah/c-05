@@ -28,10 +28,29 @@ int main() {
     } catch (const std::exception &e) {
         std::cout << "Caught exception: " << e.what() << std::endl;
     }
-
+    
+	// Test Form::beSigned
+    try {
+        Bureaucrat b3("John", 50);
+        Form f3("Form1", 40, 1);
+        f3.beSigned(b3);
+        std::cout << "Form signed successfully" << std::endl;
+    } catch (const std::exception &e) {
+        std::cout << "Caught exception: " << e.what() << std::endl;
+    }
+	std::cout << "--------------------------------------" << std::endl;
     // Test Bureaucrat::signForm
     try {
         Bureaucrat b4("dark", 50);
+        Form f4("Form4", 50, 1);
+        b4.signForm(f4);
+        std::cout << f4 << std::endl;
+	} catch (const std::exception &e) {
+        std::cout << "Caught exception: " << e.what() << std::endl;
+    }
+    // Test Bureaucrat::signForm
+    try {
+        Bureaucrat b4("dark", 150);
         Form f4("Form4", 50, 1);
         b4.signForm(f4);
         std::cout << f4 << std::endl;
@@ -50,7 +69,7 @@ int main() {
 
  // Test Form copy assignment operator
 	try {
-		Form f8("Form1", 50, 1);
+		Form f8("Form8", 50, 1);
 		Form f9 = f8;
 		std::cout << f9 << std::endl; // Print f9
 	} catch (const std::exception &e) {
