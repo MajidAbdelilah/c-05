@@ -1,7 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "AForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", target, 145, 137) {}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& src) : AForm(src) {}
 
@@ -18,7 +18,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	// Implement the logic for creating a file and writing ASCII trees inside it.
 	if(executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
-	std::string filename = this->getTarget() + "_shrubbery";
+	std::string filename = this->getName() + "_shrubbery";
 	std::ofstream file(filename);
 	if (!file.is_open())
 	{

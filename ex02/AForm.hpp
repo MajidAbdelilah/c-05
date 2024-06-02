@@ -7,19 +7,17 @@
 class AForm {
 private:
     const std::string name;
-	const std::string target;
     bool isSigned;
     const int gradeToSign;
     const int gradeToExecute;
 
 public:
-    AForm(std::string name, std::string target, int gradeToSign, int gradeToExecute);
+    AForm(std::string name, int gradeToSign, int gradeToExecute);
     AForm(const AForm &src); // Copy constructor
     AForm &operator=(const AForm &rhs); // Copy assignment operator
     virtual ~AForm(); // Destructor
 
     std::string getName() const;
-    std::string getTarget() const;
 	bool getIsSigned() const;
     int getGradeToSign() const;
     int getGradeToExecute() const;

@@ -1,7 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", target, 72, 45) {}
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src) : AForm(src) {}
 
@@ -22,8 +22,8 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	std::cout << "* drilling noises *" << std::endl;
 	std::srand(std::time(0));
 	if (std::rand() % 2 == 0) {
-		std::cout << getTarget() << " has been robotomized successfully." << std::endl;
+		std::cout << getName() << " has been robotomized successfully." << std::endl;
 	} else {
-		std::cout << "Robotomization of " << getTarget() << " has failed." << std::endl;
+		std::cout << "Robotomization of " << getName() << " has failed." << std::endl;
 	}
 }

@@ -2,8 +2,10 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <cstdlib>
 #include <exception>
 #include "Intern.hpp"
+
 
 int main()
 {
@@ -35,6 +37,7 @@ int main()
 	try {
 		AForm *form = someRandomIntern.makeForm("nonexistent form", "Bender");
 		std::cout << *form << std::endl;
+		delete form;
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}

@@ -1,14 +1,14 @@
 #include "AForm.hpp"
 
-AForm::AForm(std::string name, std::string target, int gradeToSign, int gradeToExecute)
-    : name(name), target(target), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) {
+AForm::AForm(std::string name, int gradeToSign, int gradeToExecute)
+    : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) {
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
     if (gradeToSign > 150 || gradeToExecute > 150)
         throw GradeTooLowException();
 }
 
-AForm::AForm(const AForm &src) : name(src.name), target(src.target), isSigned(src.isSigned), gradeToSign(src.gradeToSign), gradeToExecute(src.gradeToExecute) 
+AForm::AForm(const AForm &src) : name(src.name), isSigned(src.isSigned), gradeToSign(src.gradeToSign), gradeToExecute(src.gradeToExecute) 
 {
 	// std::cout << "copy constructor called\n";
 }
@@ -24,7 +24,6 @@ AForm &AForm::operator=(const AForm &rhs) {
 }
 
 std::string AForm::getName() const { return name; }
-std::string AForm::getTarget() const { return target; }
 bool AForm::getIsSigned() const { return isSigned; }
 int AForm::getGradeToSign() const { return gradeToSign; }
 int AForm::getGradeToExecute() const { return gradeToExecute; }

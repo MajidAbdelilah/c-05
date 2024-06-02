@@ -2,7 +2,7 @@ SRCS=  Intern.cpp AForm.cpp Bureaucrat.cpp PresidentialPardonForm.cpp RobotomyRe
 OBJS= $(SRCS:.cpp=.o)
 CFLAGS= -Wall -Wextra -Werror -std=c++98
 CPP= c++
-NAME= 03
+NAME= intern
 
 .PHONY: clean
 

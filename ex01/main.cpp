@@ -50,7 +50,7 @@ int main() {
     }
     // Test Bureaucrat::signForm
     try {
-        Bureaucrat b4("dark", 150);
+        Bureaucrat b4("dark2", 150);
         Form f4("Form4", 50, 1);
         b4.signForm(f4);
         std::cout << f4 << std::endl;
